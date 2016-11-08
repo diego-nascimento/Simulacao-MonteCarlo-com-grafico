@@ -137,16 +137,16 @@ function ValidandoEntradas(){
 	var Quantidade = document.getElementById("Quantidade").value; //captura da pagina html,q quantidade de simulaçoes a serem realizadas informado pelo usuario
 	if(Quantidade <1000){ //decidi que o minimo de valores a ser gerados tem que ser 100. Entoa, se o valor indidcado pelo usuario for menor que 100, 
 		Quantidade = 1000; //eh setado altomaticamente o valor 100 
-		alert("A quantidade minima de simula&ccedil&otilde;es eh 1000, sera gerada a simula&ccedil;&atildeo com a quantidade setada para 1000!");
+		alert("A quantidade minima de simulacoes eh 1000, sera gerada a simulacao com a quantidade setada para 1000!");
 		Quantidade = document.getElementById("Quantidade").value = 1000; //altera o value do campo quantidade no html para 1000
 	}
 	Menor = parseInt(Menor); //convertendo o valor capturado da pagina de string para inteiro
 	Maior = parseInt(Maior); //convertendo o valor capturado da pagina de string para inteiro
 	Provavel = parseInt(Provavel); //convertendo o valor capturado da pagina de string para inteiro
 	Quantidade = parseInt(Quantidade); //convertendo o valor capturado da pagina de string para inteiro
-	if(Menor < Maior && Menor < Provavel){
+	if(Menor < Maior && Menor <= Provavel){
 		if(Maior > Menor && Maior > Provavel){
-			if(Maior > Provavel && Menor < Provavel){
+			if(Maior > Provavel && Menor <= Provavel){
 				Simulacao(Menor, Maior, Provavel, Quantidade);
 			}else{
 				alert("Dados Inseridos de Maneira Incorreta");
