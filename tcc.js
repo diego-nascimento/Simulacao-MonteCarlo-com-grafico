@@ -145,8 +145,8 @@ function ValidandoEntradas(){
 	Provavel = parseInt(Provavel); //convertendo o valor capturado da pagina de string para inteiro
 	Quantidade = parseInt(Quantidade); //convertendo o valor capturado da pagina de string para inteiro
 	if(Menor < Maior && Menor <= Provavel){
-		if(Maior > Menor && Maior > Provavel){
-			if(Maior > Provavel && Menor <= Provavel){
+		if(Maior > Menor && Maior >= Provavel){
+			if(Maior >= Provavel && Menor <= Provavel){
 				Simulacao(Menor, Maior, Provavel, Quantidade);
 			}else{
 				alert("Dados Inseridos de Maneira Incorreta");
