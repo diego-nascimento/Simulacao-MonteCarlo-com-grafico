@@ -137,7 +137,7 @@ function ValidandoEntradas(){
 	var Quantidade = document.getElementById("Quantidade").value; //captura da pagina html,q quantidade de simulaçoes a serem realizadas informado pelo usuario
 	if(Quantidade <1000){ //decidi que o minimo de valores a ser gerados tem que ser 100. Entoa, se o valor indidcado pelo usuario for menor que 100, 
 		Quantidade = 1000; //eh setado altomaticamente o valor 100 
-		alert("A quantidade minima de simulacoes eh 1000, sera gerada a simulacao com a quantidade setada para 1000!");
+		alert("A quantidade minima de simula\u00e7\u00f5es \u00e9 1000. Ser\u00e1 gerada a simula\u00e7\u00e3o com a quantidade alterada para 1000!");
 		Quantidade = document.getElementById("Quantidade").value = 1000; //altera o value do campo quantidade no html para 1000
 	}
 	Menor = parseInt(Menor); //convertendo o valor capturado da pagina de string para inteiro
@@ -191,13 +191,13 @@ function ValidandoEntradasProbalidade(){
 			if(entre(Maior, Menor, MenorProbalidade, MaiorProbalidade)){ //testar se os valores que vai ser calculada a probalidade estao entre o maior e o menor da simulaçao
 				CalculandoProbalidadeEntre(MenorProbalidade, MaiorProbalidade);
 			}else{
-				alert("Inferior e Superior devem estar entre o Maior e Menor valor da simulacao");
+				alert("Inferior e Superior devem estar entre o Maior e Menor valor da simula\u00e7\u00e3o");
 			}
 		}else{
 			alert("Maior valor deve ser maior que o Menor");
 		}
 	}else{
-		alert("Nenhuma simula&ccedil;&atildeo foi realizada ainda");
+		alert("Nenhuma simula\u00e7\u00e3o foi realizada ainda");
 	}
 }
 function CalculaFrequenciaProbalidade(Menor, Maior){ // funçao que calcula a frequencia de um bloco
