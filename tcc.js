@@ -263,9 +263,21 @@ google.charts.load("current", {packages:['corechart']});
       chart.draw(view, options);
   }
 
-function SomenteNumero(e){ //Funçao para que nos campos apenas tenham numerais
+function SomenteNumero(e){ //Funçao para que nos campos apenas tenham numerais, o caracter . e o caracter ,
 	var tecla=(window.event)?event.keyCode:e.which; 
-	if((tecla>44 && tecla<58)) 
+	if((tecla>47 && tecla<58 || tecla == 45 || tecla == 46)) 
+		return true;
+	else{
+	if (tecla==8 || tecla==0) 
+		return true;
+	else  
+		return false;
+ }
+}
+
+function SomenteNumeroSimulacoes(e){ //Funçao para que nos campos apenas tenham numerais
+	var tecla=(window.event)?event.keyCode:e.which; 
+	if((tecla>47 && tecla<58)) 
 		return true;
 	else{
 	if (tecla==8 || tecla==0) 
