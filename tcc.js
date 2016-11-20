@@ -137,16 +137,20 @@ function ValidandoEntradas(){
 	var Quantidade = document.getElementById("Quantidade").value; //captura da pagina html,q quantidade de simulaçoes a serem realizadas informado pelo usuario
 	if(Quantidade <1000){ //decidi que o minimo de valores a ser gerados tem que ser 100. Entoa, se o valor indidcado pelo usuario for menor que 100, 
 		Quantidade = 1000; //eh setado altomaticamente o valor 100 
-		alert("A quantidade minima de simula\u00e7\u00f5es \u00e9 1000. Ser\u00e1 gerada a simula\u00e7\u00e3o com a quantidade alterada para 1000!");
+		alert("A quantidade minima de simula&ccedil&otilde;es eh 1000, sera gerada a simula&ccedil;&atildeo com a quantidade setada para 1000!");
 		Quantidade = document.getElementById("Quantidade").value = 1000; //altera o value do campo quantidade no html para 1000
 	}
-	Menor = parseInt(Menor); //convertendo o valor capturado da pagina de string para inteiro
-	Maior = parseInt(Maior); //convertendo o valor capturado da pagina de string para inteiro
-	Provavel = parseInt(Provavel); //convertendo o valor capturado da pagina de string para inteiro
+	Menor = parseFloat(Menor); //convertendo o valor capturado da pagina de string para float
+	Maior = parseFloat(Maior); //convertendo o valor capturado da pagina de string para float
+	Provavel = parseFloat(Provavel); //convertendo o valor capturado da pagina de string para float
 	Quantidade = parseInt(Quantidade); //convertendo o valor capturado da pagina de string para inteiro
-	if(Menor < Maior && Menor <= Provavel){
-		if(Maior > Menor && Maior >= Provavel){
-			Simulacao(Menor, Maior, Provavel, Quantidade);
+	if(Menor < Maior && Menor < Provavel){
+		if(Maior > Menor && Maior > Provavel){
+			if(Maior > Provavel && Menor < Provavel){
+				Simulacao(Menor, Maior, Provavel, Quantidade);
+			}else{
+				alert("Dados Inseridos de Maneira Incorreta");
+			}
 		}else{
 			alert("Dados Inseridos de Maneira Incorreta");
 		}
@@ -184,20 +188,20 @@ function entre(Maior, Menor, MenorProbalidade, MaiorProbalidade){
 function ValidandoEntradasProbalidade(){
 	var MenorProbalidade = document.getElementById("menorProbalidade").value; //captura da pagina html, o menor valor informado pelo usuario
 	var MaiorProbalidade = document.getElementById("maiorProbabilidade").value; //captura da pagina html, o maior valor informado pelo usuario
-	MenorProbalidade = parseInt(MenorProbalidade); //convertendo o valor capturado da pagina de string para inteiro
-	MaiorProbalidade = parseInt(MaiorProbalidade); //convertendo o valor capturado da pagina de string para inteiro
+	MenorProbalidade = parseFloat(MenorProbalidade); //convertendo o valor capturado da pagina de string para float
+	MaiorProbalidade = parseFloat(MaiorProbalidade); //convertendo o valor capturado da pagina de string para float
 	if(simulado == true){
 		if(MenorProbalidade <= MaiorProbalidade){
 			if(entre(Maior, Menor, MenorProbalidade, MaiorProbalidade)){ //testar se os valores que vai ser calculada a probalidade estao entre o maior e o menor da simulaçao
 				CalculandoProbalidadeEntre(MenorProbalidade, MaiorProbalidade);
 			}else{
-				alert("Inferior e Superior devem estar entre o Maior e Menor valor da simula\u00e7\u00e3o");
+				alert("Inferior e Superior devem estar entre o Maior e Menor valor da simulacao");
 			}
 		}else{
 			alert("Maior valor deve ser maior que o Menor");
 		}
 	}else{
-		alert("Nenhuma simula\u00e7\u00e3o foi realizada ainda");
+		alert("Nenhuma simula&ccedil;&atildeo foi realizada ainda");
 	}
 }
 function CalculaFrequenciaProbalidade(Menor, Maior){ // funçao que calcula a frequencia de um bloco
@@ -261,7 +265,7 @@ google.charts.load("current", {packages:['corechart']});
 
 function SomenteNumero(e){ //Funçao para que nos campos apenas tenham numerais
 	var tecla=(window.event)?event.keyCode:e.which; 
-	if((tecla>47 && tecla<58)) 
+	if((tecla>44 && tecla<58)) 
 		return true;
 	else{
 	if (tecla==8 || tecla==0) 
