@@ -28,7 +28,7 @@ function DistribuicaoTriangular(Valores, Maximo, Minimo, Provavel){
 			// A + Raiz ( x (B - A) (C - A) )	
 			Valores[i] =  Minimo + Math.sqrt( Valores[i] * difMelhorMinimo * difMaximoMinimo); 	 
 		}
-		console.log('teste')	
+			
 	}
 }
 function GerandoValor(){ //funçao que gera o valor aleatorio
